@@ -4,19 +4,22 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-    <header>
-        <nav>
-            <a asp-action="Index">Главная</a>
-            <a asp-action="About">О проекте</a>
-        </nav>
-    </header>
-    <main>
-        @RenderBody()
-    </main>
-    <footer>
-
-    </footer>
+    <div class="main-wrapper">
+        <header>
+            <nav>
+                <a asp-action="Index">Главная</a>
+                <a asp-action="About">О сервисе</a>
+                <a href="#">Icon</a>
+            </nav>
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+        <footer>
+        </footer>
+    </div>    
 </body>
 </html>

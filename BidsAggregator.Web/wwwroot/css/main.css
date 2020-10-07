@@ -1,0 +1,42 @@
+﻿body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.main-wrapper{
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {   
+    background-color: #44B4B9;
+    padding: 24px 40px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;    
+}
+
+nav > a {    
+    color: #FFFFFF;
+    font-size: 28px;
+    text-decoration: none;
+    margin-right: 40px;
+}
+
+nav > a:last-child{
+    margin-right: 0px;
+    margin-left: auto;
+}
+
+main{
+    flex-grow: 1;
+}
+
+footer {
+    height: 130px;
+    background-color: #44B4B9;    
+}
