@@ -33,7 +33,7 @@ namespace BidsAggregator.Infrastructure.Data
             Context.Set<TEntity>().ToList();
 
         public void Add(TEntity entry) => 
-            Context.Set<TEntity>().AddAsync(entry);
+            Context.Set<TEntity>().Add(entry);
        
 
         public void Update(TEntity entry) => 

@@ -24,6 +24,11 @@ namespace BidsAggregator.Infrastructure.Data.Config
                 .IsRequired();
 
             builder
+              .Property(inquirer => inquirer.Email)
+              .HasMaxLength(50)
+              .IsRequired();
+
+            builder
                 .Property(inquirer => inquirer.PhoneNumber)
                 .HasMaxLength(20)
                 .IsRequired();

@@ -4,15 +4,14 @@ namespace BidsAggregator.Core.Entities.TempolaryInquiry
 {
     public class TempolaryInquiry : InquiryBase, IAggregateRoot
     {
-        public string TempolaryUrl { get; }
+        public string TempolaryUrl { get; set; }
         public string Body { get; private set; }
 
         public long InquirerId { get; set; }
         public TempolaryInquirer Inquirer { get; set; }
 
-        internal TempolaryInquiry(string tempolaryUrl, string body) : base()
+        internal TempolaryInquiry(string body) : base()
         {
-            TempolaryUrl = tempolaryUrl;
             Body = body;
         }
 

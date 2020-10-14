@@ -1,3 +1,4 @@
+using AutoMapper;
 using BidsAggregator.Infrastructure.Data;
 using BidsAggregator.Web.Extentions;
 using Microsoft.AspNetCore.Builder;
@@ -21,11 +22,12 @@ namespace BidsAggregator.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddDbContext<BidsAggregatorContext>(opt =>
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("TestConnection"));
             });
-
             services.AddBidsAggregatorDomain();
 
             services.AddControllersWithViews();
@@ -52,7 +54,7 @@ namespace BidsAggregator.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id:long?}");
             });
         }
     }

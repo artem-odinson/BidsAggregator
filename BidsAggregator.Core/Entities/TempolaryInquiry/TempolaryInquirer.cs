@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BidsAggregator.Core.Entities.TempolaryInquiry
 {
@@ -19,14 +20,18 @@ namespace BidsAggregator.Core.Entities.TempolaryInquiry
         private List<TempolaryInquiry> _inquiries = new List<TempolaryInquiry>();
         public IReadOnlyCollection<TempolaryInquiry> Inquiries => _inquiries.AsReadOnly();
 
-        internal TempolaryInquirer() : base() { }
+        public TempolaryInquirer() : base() { }
 
         protected TempolaryInquirer(long id) : base(id) { }
 
-        public void CreateInquiry(string tempolaryUrl, string body)
+        public TempolaryInquiry CreateInquiry(string body)
         {
-            var bid = new TempolaryInquiry(tempolaryUrl, body);
+            if (string.IsNullOrWhiteSpace(body))
+                throw new ArgumentNullException(nameof(body));
+
+            var bid = new TempolaryInquiry(body);
             _inquiries.Add(bid);
+            return bid;
         }
     }
 }
